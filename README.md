@@ -1,32 +1,43 @@
 # Canadian FDI GDP Time Series Modeling
 
-R and dashboard project for exploring relationships between Canadian FDI and GDP with forecasting-oriented economic indicators.
+This repository is intentionally **R-only** because the original project was an R/econometrics workflow. It analyzes the relationship between Canadian foreign direct investment and GDP using interpolation, factor selection, time-series modeling, and VAR/VECM-style analysis.
 
-## Portfolio Context
+## Project Purpose
 
-This repository is a cleaned public portfolio version of coursework/project material maintained under Snega Murugan's GitHub profile. Raw folders, virtual environments, private keys, and large datasets were intentionally excluded.
+The goal is to understand whether foreign direct investment and GDP move together over time, how lagged relationships can support forecasting, and how sector-level investment changes can inform policy or economic planning.
 
-## Features
+## R Workflow
 
-- Professional Streamlit dashboard or app entrypoint.
-- Sample data included so the project can run without private credentials.
-- Original analysis/code artifacts preserved where safe.
-- Clear setup and run instructions for recruiters and technical reviewers.
+- `r/FDI_data_Interpolation.R` - original interpolation workflow.
+- `r/Factor_selection.R` - original factor-selection script.
+- `r/Prediction_model.R` - original prediction/modeling script.
+- `r/run_fdi_gdp_analysis.R` - cleaned portfolio analysis runner using ARIMA and VAR.
+- `r/shiny_app.R` - optional R Shiny interface for exploring the time series.
 
-## Setup
+## Data
 
-```powershell
-python -m venv .venv
-.\.venv\Scriptsctivate
-pip install -r requirements.txt
+- `data/FDI - proposal data.csv` - original proposal-stage FDI data.
+- `data/GDP - proposal data.csv` - original proposal-stage GDP data.
+- `data/fdi_gdp_sample.csv` - compact public sample for reproducible Shiny and analysis runs.
+
+## Install R Packages
+
+```r
+source("requirements.R")
 ```
 
-## Run
+## Run Analysis
 
-```powershell
-streamlit run streamlit_app.py
+```r
+source("r/run_fdi_gdp_analysis.R")
 ```
 
-## Notes
+## Run Shiny App
 
-- Original R scripts are preserved in `r/`. The Streamlit dashboard uses a lightweight sample to make the project easy to run.
+```r
+shiny::runApp("r/shiny_app.R")
+```
+
+## Portfolio Note
+
+No Python dashboard is included here. Keeping this repository R-based better represents the original project and shows range beyond Python-only work.
